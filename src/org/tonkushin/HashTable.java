@@ -15,6 +15,9 @@ public class HashTable<K, V> {
     // Коэффициент загрузки
     private static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
+    // Коэффициент загрузки
+    private final float loadFactor = 0.75f;
+
     // Пороговое значение. Когда количество элементов превышает пороговое значение, хэш-таблица вызывает rehash()
     private int threshold;
 
@@ -168,8 +171,6 @@ public class HashTable<K, V> {
         HashEntry<K, V>[] oldBuckets = buckets;
 
         int newCapacity = (2 * buckets.length) + 1;
-        // Коэффициент загрузки
-        float loadFactor = 0.75f;
         threshold = (int) (newCapacity * loadFactor);
         buckets = (HashEntry<K, V>[]) new HashEntry[newCapacity];
 
