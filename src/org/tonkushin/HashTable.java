@@ -201,6 +201,7 @@ public class HashTable<K, V> {
 
     private int hash(Object key) {
         int hash = key.hashCode() % buckets.length;
+//        int hash = key.hashCode() % 11;
         return hash < 0 ? -hash : hash;
     }
 
